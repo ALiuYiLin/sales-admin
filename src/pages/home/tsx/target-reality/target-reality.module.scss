@@ -1,0 +1,90 @@
+.card {
+  background-color: #fff;
+  border: 1px solid #eaeaea;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(18, 38, 63, 0.08);
+  padding: 20px 24px;
+  width: 560px;
+  height: 480px;
+  display: flex;
+  flex-direction: column;
+
+  .title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 24px;
+  }
+
+  .chartContainer {
+    flex: 1;
+    width: 100%;
+    margin-bottom: 24px;
+  }
+
+  .legend {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .legendItem {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .left {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        .iconWrapper {
+          width: 40px;
+          height: 40px;
+          border-radius: 8px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          &.green {
+            background-color: #e6fffa;
+            color: #10b981;
+          }
+
+          &.orange {
+            background-color: #fff7ed;
+            color: #f59e0b;
+          }
+        }
+
+        .texts {
+          display: flex;
+          flex-direction: column;
+
+          .label {
+            font-size: 14px;
+            font-weight: 500;
+            color: #0f172a;
+          }
+
+          .subLabel {
+            font-size: 12px;
+            color: #94a3b8;
+          }
+        }
+      }
+
+      .value {
+        font-size: 16px;
+        font-weight: 600;
+
+        &.green {
+          color: #10b981;
+        }
+
+        &.orange {
+          color: #f59e0b;
+        }
+      }
+    }
+  }
+}
