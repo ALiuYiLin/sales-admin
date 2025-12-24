@@ -34,6 +34,7 @@ export const TopProducts = () => (
             <td className={`${styles.cell} ${styles.pop}`}>
               <div className={styles.cellInner}>
                 <div className={`${styles.progress} ${styles[`tone-${p.tone}`]}`}>
+                  <div className={styles.fillBg} style={{ width: `100%` }} />
                   <div className={styles.fill} style={{ width: `${p.percent}%` }} />
                 </div>
               </div>

@@ -1,4 +1,26 @@
-@import url('https://cdn.jsdelivr.net/npm/@lobehub/webfont-harmony-sans-sc@1.0.0/css/index.min.css');
+@font-face {
+  font-family: 'HarmonyOS Sans SC';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./assets/font/HarmonyOS_Sans_SC_Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'HarmonyOS Sans SC';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('./assets/font/HarmonyOS_Sans_SC_Medium.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'HarmonyOS Sans SC';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('./assets/font/HarmonyOS_Sans_SC_Bold.woff2') format('woff2');
+}
 
 * {
   margin: 0;
