@@ -1,0 +1,25 @@
+@import url('https://cdn.jsdelivr.net/npm/@lobehub/webfont-harmony-sans-sc@1.0.0/css/index.min.css');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body {
+  height: 100vh;
+  font-family: 'HarmonyOS Sans SC', 'HarmonyOS Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', 'Heiti SC', sans-serif;
+}
+#root {
+  height: 100%;
+}
+.app {
+  height: 100%;
+  background-color: #bfc0ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button, input, textarea, select {
+  font-family: inherit;
+}

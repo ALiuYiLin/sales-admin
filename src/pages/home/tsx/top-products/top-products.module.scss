@@ -1,0 +1,98 @@
+/* rewritten styles for table layout */
+.card {
+  background-color: #fff;
+  border: 1px solid #eaeaea;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(18, 38, 63, 0.08);
+  padding: 20px 24px;
+  width: 560px;
+  
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 16px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.headRow th {
+  color: #94a3b8;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: left;
+  padding: 12px 0;
+}
+
+.row td {
+  color: #0f172a;
+  font-size: 14px;
+  padding: 16px 0;
+  border-top: 1px solid #e5e7eb;
+}
+
+.cell { text-align: left; }
+.cellInner { display: flex; align-items: center; width: 100%; }
+.index { width: 60px; }
+.name { width: auto; }
+.pop { width: 50%; }
+.sales { width: 100px; justify-content: flex-end; }
+
+.progress {
+  position: relative;
+  height: 8px;
+  width: 100%;
+  background: #eef2f7;
+  border-radius: 999px;
+  overflow: hidden;
+}
+.fill {
+  height: 100%;
+  border-radius: 999px;
+  position: relative;
+}
+.fill::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 28px;
+  border-top-right-radius: 999px;
+  border-bottom-right-radius: 999px;
+  background: var(--fade);
+}
+
+/* tones */
+.tone-blue .fill { background: var(--bar, #3b82f6); }
+.tone-blue { --fade: #cfe4ff; }
+
+.tone-green .fill { background: var(--bar, #10b981); }
+.tone-green { --fade: #c9f4e6; }
+
+.tone-purple .fill { background: var(--bar, #8b5cf6); }
+.tone-purple { --fade: #e4d8ff; }
+
+.tone-orange .fill { background: var(--bar, #f59e0b); }
+.tone-orange { --fade: #ffe9c7; }
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 24px;
+  padding: 0 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  background: transparent;
+}
+.tone-blue .badge { border: 1px solid #3b82f6; color: #1e40af; }
+.tone-green .badge { border: 1px solid #10b981; color: #0f766e; }
+.tone-purple .badge { border: 1px solid #8b5cf6; color: #6d28d9; }
+.tone-orange .badge { border: 1px solid #f59e0b; color: #b45309; }
