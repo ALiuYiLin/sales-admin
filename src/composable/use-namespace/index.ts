@@ -71,7 +71,7 @@ export function useNameSpace(styles: Styles, block: string) {
     const state = args.length >= 1 ? args[0]! : true;
     return name && state ? `${statePrefix}${name}` : "";
   };
-  const cx = (...names: string[]) =>
+  const cn = (...names: string[]) =>
     names
       .map((n) => map(styles, n))
       .filter(Boolean)
@@ -86,6 +86,6 @@ export function useNameSpace(styles: Styles, block: string) {
     bm,
     bem,
     is,
-    cx,
+    cn,
   };
 }

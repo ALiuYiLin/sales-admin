@@ -1,4 +1,5 @@
 import styles from './top-products.module.scss'
+import { useNameSpace } from '@/composable'
 
 type Product = {
   index: string
@@ -14,40 +15,43 @@ const PRODUCTS: Product[] = [
   { index: '04', name: '苹果智能手表', percent: 25, tone: 'orange' },
 ]
 
-export const TopProducts = () => (
-  <div className={styles.card}>
-    <div className={styles.title}>顶级产品</div>
-    <table className={styles.table}>
-      <thead>
-        <tr className={styles.headRow}>
-          <th className={`${styles.cell} ${styles.index}`}><div className={styles.cellInner}>#</div></th>
-          <th className={`${styles.cell} ${styles.name}`}><div className={styles.cellInner}>名称</div></th>
-          <th className={`${styles.cell} ${styles.pop}`}><div className={styles.cellInner}>人气</div></th>
-          <th className={`${styles.cell} ${styles.sales}`}><div className={styles.cellInner}>销售额</div></th>
-        </tr>
-      </thead>
-      <tbody>
-        {PRODUCTS.map(p => (
-          <tr className={styles.row} key={p.index}>
-            <td className={`${styles.cell} ${styles.index}`}><div className={styles.cellInner}>{p.index}</div></td>
-            <td className={`${styles.cell} ${styles.name}`}><div className={styles.cellInner}>{p.name}</div></td>
-            <td className={`${styles.cell} ${styles.pop}`}>
-              <div className={styles.cellInner}>
-                <div className={`${styles.progress} ${styles[`tone-${p.tone}`]}`}>
-                  <div className={styles.fillBg} style={{ width: `100%` }} />
-                  <div className={styles.fill} style={{ width: `${p.percent}%` }} />
-                </div>
-              </div>
-            </td>
-            <td className={`${styles.cell} ${styles.sales}`}>
-              <div className={styles.cellInner}>
-                <span className={`${styles.badge} ${styles[`tone-${p.tone}`]}`}>{p.percent}%</span>
-              </div>
-            </td>
+export const TopProducts = () => {
+  const { cn, ...ns } = useNameSpace(styles, 'top-products')
+  return (
+    <div className={ns.b()}>
+      <div className={ns.e('title')}>顶级产品</div>
+      <table className={ns.e('table')}>
+        <thead>
+          <tr className={ns.e('head-row')}>
+            <th className={cn(ns.e('cell'), ns.e('index'))}><div className={ns.e('cell-inner')}>#</div></th>
+            <th className={cn(ns.e('cell'), ns.e('name'))}><div className={ns.e('cell-inner')}>名称</div></th>
+            <th className={cn(ns.e('cell'), ns.e('pop'))}><div className={ns.e('cell-inner')}>人气</div></th>
+            <th className={cn(ns.e('cell'), ns.e('sales'))}><div className={ns.e('cell-inner')}>销售额</div></th>
           </tr>
-        ))}
-      </tbody>
-    </table>
-  </div>
-)
+        </thead>
+        <tbody>
+          {PRODUCTS.map(p => (
+            <tr className={ns.e('row')} key={p.index}>
+              <td className={cn(ns.e('cell'), ns.e('index'))}><div className={ns.e('cell-inner')}>{p.index}</div></td>
+              <td className={cn(ns.e('cell'), ns.e('name'))}><div className={ns.e('cell-inner')}>{p.name}</div></td>
+              <td className={cn(ns.e('cell'), ns.e('pop'))}>
+                <div className={ns.e('cell-inner')}>
+                  <div className={cn(ns.e('progress'), ns.em('progress', p.tone))}>
+                    <div className={ns.e('fill')} style={{ width: `${p.percent}%` }} />
+                    <div className={ns.e('fill-bg')} />
+                  </div>
+                </div>
+              </td>
+              <td className={cn(ns.e('cell'), ns.e('sales'))}>
+                <div className={ns.e('cell-inner')}>
+                  <span className={cn(ns.e('badge'), ns.em('badge', p.tone))}>{p.percent}%</span>
+                </div>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  )
+}
 

@@ -1,149 +1,104 @@
-/* rewritten styles for table layout */
+@use '../../../../theme/shared.scss' as *;
 
-.card {
+@include b('top-products') {
   background-color: #fff;
   border: 1px solid #eaeaea;
   border-radius: 14px;
   box-shadow: 0 6px 18px rgba(18, 38, 63, 0.08);
-  width: fit-content;
+  padding: 20px 24px;
+  width: 560px;
 
-  margin: 20px;
-
-  /** 文本1 */
-  font-size: 6.77px;
-  font-weight: 400;
-  line-height: 8.33px;
-  color: rgba(150, 165, 184, 1);
-  --ml: 14px;
-  --mt: 12px;
-  --mb: 4px;
-  --mr: 19px;
-  .title {
+  @include e('title') {
     color: #0f172a;
-    // margin-bottom: 16px;
-    margin-left: var(--ml);
-    margin-top: var(--mt);
-    font-size: 10.42px;
+    font-size: 18px;
     font-weight: 700;
-    line-height: 16.67px;
+    margin-bottom: 16px;
   }
 
-  .table {
+  @include e('table') {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: var(--mb);
-    .headRow {
-      th {
-        color: #94a3b8;
-        font-weight: 500;
-        text-align: left;
-      }
+  }
+  @include e('head-row') {
+    th {
+      color: #94a3b8;
+      font-size: 13px;
+      font-weight: 500;
+      text-align: left;
+      padding: 10px 0;
     }
-
-    .row {
-      td {
-        color: #0f172a;
-        border-top: 1px solid #e5e7eb;
-      }
+  }
+  @include e('row') {
+    td {
+      color: #0f172a;
+      border-top: 1px solid #e5e7eb;
+      padding: 10px 0;
     }
   }
 
-  /* .cell is used inside .table, but also has specific modifiers */
-  .cell {
-    text-align: left;
-    padding-block: 9px;
+  @include e('cell') { text-align: left; }
+  @include e('cell-inner') { display: flex; align-items: center; width: 100%; }
 
-    &.index {
-      width: calc(29px + var(--ml));
-      padding-left: var(--ml);
-    }
+  @include e('index') { width: 60px; }
+  @include e('name') { width: auto; }
+  @include e('pop') { width: 50%; }
+  @include e('sales') { width: 100px; }
 
-    &.name {
-      width: 131px;
-    }
-
-    &.pop {
-      width: 118px;
-    }
-
-    &.sales {
-      width: calc(26px + var(--mr));
-      padding-right: var(--mr);
-      justify-content: flex-end;
-    }
-  }
-
-  .cellInner {
-    display: flex;
-    align-items: center;
-  }
-
-  .progress {
+  @include e('progress') {
     position: relative;
+    height: 8px;
     width: 100%;
+    max-width: 240px;
     background: #eef2f7;
     border-radius: 999px;
     overflow: hidden;
-    height: 2.08px;
-    width: 93.75px;
 
-    .fill {
+    @include meb(false, 'fill') {
       height: 100%;
       border-radius: 999px;
-      position: relative;
-      background: var(--fill-bg);
     }
-
-    .fillBg {
-      width: 100%;
-      height: 100%;
+    @include meb(false, 'fill-bg') {
       position: absolute;
       left: 0;
       top: 0;
+      width: 100%;
+      height: 100%;
       border-top-right-radius: 999px;
       border-bottom-right-radius: 999px;
-      background: var(--fade);
+    }
+
+    @include m('blue') {
+      @include meb(false, 'fill') { background: #3b82f6; }
+      @include meb(false, 'fill-bg') { background: #cfe4ff; }
+    }
+    @include m('green') {
+      @include meb(false, 'fill') { background: #10b981; }
+      @include meb(false, 'fill-bg') { background: #c9f4e6; }
+    }
+    @include m('purple') {
+      @include meb(false, 'fill') { background: #8b5cf6; }
+      @include meb(false, 'fill-bg') { background: #e4d8ff; }
+    }
+    @include m('orange') {
+      @include meb(false, 'fill') { background: #f59e0b; }
+      @include meb(false, 'fill-bg') { background: #ffe9c7; }
     }
   }
 
-  .badge {
+  @include e('badge') {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    height: 24px;
+    padding: 0 12px;
     border-radius: 999px;
+    font-size: 12px;
     font-weight: 600;
     background: transparent;
-    border: 1px solid var(--badge-border);
-    color: var(--badge-color);
-    padding:   1px 5px;
+
+    @include m('blue') { border: 1px solid #3b82f6; color: #1e40af; }
+    @include m('green') { border: 1px solid #10b981; color: #0f766e; }
+    @include m('purple') { border: 1px solid #8b5cf6; color: #6d28d9; }
+    @include m('orange') { border: 1px solid #f59e0b; color: #b45309; }
   }
-}
-
-/* tones - these are modifiers that can be applied at various levels or to elements inside card */
-.tone-blue {
-  --fade: #cfe4ff;
-  --fill-bg: #3b82f6;
-  --badge-border: #3b82f6;
-  --badge-color: #1e40af;
-}
-
-.tone-green {
-  --fade: #c9f4e6;
-  --fill-bg: #10b981;
-  --badge-border: #10b981;
-  --badge-color: #0f766e;
-}
-
-.tone-purple {
-  --fade: #e4d8ff;
-  --fill-bg: #8b5cf6;
-  --badge-border: #8b5cf6;
-  --badge-color: #6d28d9;
-}
-
-.tone-orange {
-  --fade: #ffe9c7;
-  --fill-bg: #f59e0b;
-  --badge-border: #f59e0b;
-  --badge-color: #b45309;
 }
