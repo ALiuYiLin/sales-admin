@@ -1,5 +1,6 @@
 import { BarChart, Bar, XAxis, ResponsiveContainer } from 'recharts'
 import styles from './target-reality.module.scss'
+import { useNameSpace } from '@/composable'
 
 // 模拟数据
 const data = [
@@ -32,11 +33,12 @@ const TicketIcon = () => (
 )
 
 export const TargetReality = () => {
+  const ns = useNameSpace(styles, 'target-reality')
   return (
-    <div className={styles.card}>
-      <div className={styles.title}>目标与现实</div>
+    <div className={ns.b()}>
+      <div className={ns.e('title')}>目标与现实</div>
 
-      <div className={styles.chartContainer}>
+      <div className={ns.e('chart')}>
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={data} barGap={6}>
             <XAxis 
@@ -62,31 +64,31 @@ export const TargetReality = () => {
         </ResponsiveContainer>
       </div>
 
-      <div className={styles.legend}>
-        <div className={styles.legendItem}>
-          <div className={styles.left}>
-            <div className={`${styles.iconWrapper} ${styles.green}`}>
+      <div className={ns.e('legend')}>
+        <div className={ns.e('legend-item')}>
+          <div className={ns.e('left')}>
+            <div className={ns.em('icon-wrapper','green')}>
               <ShoppingBagIcon />
             </div>
-            <div className={styles.texts}>
-              <span className={styles.label}>现实销售</span>
-              <span className={styles.subLabel}>全球的</span>
+            <div className={ns.e('texts')}>
+              <span className={ns.e('label')}>现实销售</span>
+              <span className={ns.e('sub-label')}>全球的</span>
             </div>
           </div>
-          <span className={`${styles.value} ${styles.green}`}>8.823</span>
+          <span className={ns.em('value','green')}>8.823</span>
         </div>
 
-        <div className={styles.legendItem}>
-          <div className={styles.left}>
-            <div className={`${styles.iconWrapper} ${styles.orange}`}>
+        <div className={ns.e('legend-item')}>
+          <div className={ns.e('left')}>
+            <div className={ns.em('icon-wrapper','orange')}>
               <TicketIcon />
             </div>
-            <div className={styles.texts}>
-              <span className={styles.label}>目标销售额</span>
-              <span className={styles.subLabel}>商业的</span>
+            <div className={ns.e('texts')}>
+              <span className={ns.e('label')}>目标销售额</span>
+              <span className={ns.e('sub-label')}>商业的</span>
             </div>
           </div>
-          <span className={`${styles.value} ${styles.orange}`}>12.122</span>
+          <span className={ns.em('value','orange')}>12.122</span>
         </div>
       </div>
     </div>
