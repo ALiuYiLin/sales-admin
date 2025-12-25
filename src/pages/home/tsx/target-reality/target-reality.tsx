@@ -38,7 +38,7 @@ export const TargetReality = () => {
 
       <div className={styles.chartContainer}>
         <ResponsiveContainer width="100%" height="100%">
-          <BarChart data={data} barGap={8}>
+          <BarChart data={data} barGap={6}>
             <XAxis 
               dataKey="name" 
               axisLine={false} 
@@ -50,13 +50,13 @@ export const TargetReality = () => {
               dataKey="reality" 
               fill="#4AB58E" 
               radius={[4, 4, 4, 4]} 
-              barSize={12}
+              barSize={20}
             />
             <Bar 
               dataKey="target" 
               fill="#FFCF00" 
               radius={[4, 4, 4, 4]} 
-              barSize={12}
+              barSize={20}
             />
           </BarChart>
         </ResponsiveContainer>
