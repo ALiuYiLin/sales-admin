@@ -11,6 +11,11 @@ export default defineConfig(({ mode }) => ({
     },
   },
   css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@use '@/theme/shared' as *;\n`,
+      },
+    },
     modules: {
       generateScopedName: mode === 'development'
         ? '[local]--[hash:base64:5]'
