@@ -57,6 +57,7 @@ function Feature({title, Svg, description}: FeatureItem) {
 }
 
 export default function HomepageFeatures(): ReactNode {
+  console.log('FeatureList: ', FeatureList);
   return (
     <section className={styles.features}>
       <div className="container">

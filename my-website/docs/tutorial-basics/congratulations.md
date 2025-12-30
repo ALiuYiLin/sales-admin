@@ -2,7 +2,7 @@
 sidebar_position: 6
 ---
 
-# Congratulations!
+# Congratulations
 
 You have just learned the **basics of Docusaurus** and made some changes to the **initial template**.
 
@@ -21,3 +21,7 @@ Anything **unclear** or **buggy** in this tutorial? [Please report it!](https://
 - Add a [search bar](https://docusaurus.io/docs/search)
 - Find inspirations in the [Docusaurus showcase](https://docusaurus.io/showcase)
 - Get involved in the [Docusaurus Community](https://docusaurus.io/community/support)
+
+<iframe src="https://aliuyilin.github.io/whale-docs/%E9%9D%A2%E8%AF%95%E9%A2%98/Webpack/webpack.html" width="100%" >
+
+</iframe>
