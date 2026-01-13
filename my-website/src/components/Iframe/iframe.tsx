@@ -7,8 +7,6 @@ export default function Iframe({
   src: string;
 }) {
   const iframeRef = useRef<HTMLIFrameElement>(null);
-  console.log('src: ', src);
-  console.log('window: ', window);
   useEffect(()=>{
     console.log('iframeRef: ', iframeRef);
     window.addEventListener('message', (event) => {
